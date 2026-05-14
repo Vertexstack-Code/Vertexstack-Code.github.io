@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solutions Studio</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#020817;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  height:70px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+  background:#030b1f;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+  font-weight:700;
+}
+
+.logo-icon{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#8b3dff,#00a3ff);
+}
+
+nav{
+  display:flex;
+  gap:35px;
+}
+
+nav a{
+  text-decoration:none;
+  color:white;
+  font-size:15px;
+}
+
+nav a.active{
+  color:#b84dff;
+}
+
+.talk-btn{
+  padding:13px 28px;
+  border:none;
+  border-radius:10px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#8b3dff,#00a3ff);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  text-align:center;
+  padding:70px 20px 40px;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:40px;
+  background:rgba(139,61,255,0.12);
+  border:1px solid rgba(139,61,255,0.25);
+  color:#c084fc;
+  margin-bottom:24px;
+}
+
+.hero h1{
+  font-size:70px;
+  line-height:1;
+  margin-bottom:25px;
+}
+
+.hero h1 span{
+  background:linear-gradient(135deg,#8b3dff,#00a3ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  font-size:22px;
+  line-height:1.5;
+  color:#cbd5e1;
+}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+}
+
+.primary-btn{
+  padding:16px 34px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#8b3dff,#00a3ff);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.secondary-btn{
+  padding:16px 34px;
+  border-radius:14px;
+  border:1px solid #9333ea;
+  background:transparent;
+  color:#e879f9;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ================= CARDS ================= */
+
+.container{
+  width:95%;
+  max-width:1450px;
+  margin:auto;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-top:30px;
+}
+
+.card{
+  background:#071127;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#8b3dff;
+}
+
+.card img{
+  width:100%;
+  display:block;
+}
+
+.card-content{
+  padding:24px;
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:16px;
+}
+
+.card p{
+  color:#cbd5e1;
+  font-size:17px;
+  line-height:1.6;
+}
+
+.learn{
+  display:inline-block;
+  margin-top:22px;
+  color:#a855f7;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  margin-top:28px;
+  background:#071127;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.08);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:30px 10px;
+}
+
+.stat{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+
+.stat:last-child{
+  border-right:none;
+}
+
+.stat-icon{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:rgba(139,61,255,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:#a855f7;
+}
+
+.stat h2{
+  font-size:36px;
+  color:#8b5cff;
+}
+
+.stat p{
+  color:#cbd5e1;
+  margin-top:4px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  color:#94a3b8;
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  margin-top:18px;
+  font-size:22px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+
+  .stat{
+    border:none;
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  nav{
+    display:none;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<div class="logo-icon">🧠</div>
+AI Solutions Studio
+</div>
+
+<nav>
+<a href="#" class="active">Home</a>
+<a href="#">Services</a>
+<a href="#">Solutions</a>
+<a href="#">Portfolio</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+
+<button class="talk-btn">Let's Talk</button>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="badge">
+✦ AI-Powered Innovation
+</div>
+
+<h1>
+AI Solutions That <br>
+Drive <span>Real Results</span>
+</h1>
+
+<p>
+We build intelligent AI solutions, automate workflows, and help
+businesses unlock the power of artificial intelligence.
+</p>
+
+<div class="hero-buttons">
+<button class="primary-btn">Explore Services</button>
+<button class="secondary-btn">Contact Us</button>
+</div>
+
+</section>
+
+<!-- ================= CARDS ================= -->
+
+<div class="container">
+
+<section class="cards">
+
+<div class="card">
+<img src="1.jpg">
+
+<div class="card-content">
+<h3>AI Chatbot Development</h3>
+
+<p>
+Custom AI chatbots that understand your customers and provide 24/7 intelligent support.
+</p>
+
+<a href="#" class="learn">Learn More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="3.jpg">
+
+<div class="card-content">
+<h3>AI Automation</h3>
+
+<p>
+Automate repetitive tasks, streamline workflows, and boost productivity using AI.
+</p>
+
+<a href="#" class="learn">Learn More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="4.jpg">
+
+<div class="card-content">
+<h3>AI Data Analytics</h3>
+
+<p>
+Turn data into insights with AI-powered analytics and predictive modeling.
+</p>
+
+<a href="#" class="learn">Learn More →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="4.jpg">
+
+<div class="card-content">
+<h3>Custom AI Solutions</h3>
+
+<p>
+Tailored AI solutions designed to solve your unique business challenges.
+</p>
+
+<a href="#" class="learn">Learn More →</a>
+</div>
+</div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+<div class="stat">
+<div class="stat-icon">👥</div>
+
+<div>
+<h2>50+</h2>
+<p>Happy Clients</p>
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">🚀</div>
+
+<div>
+<h2>120+</h2>
+<p>Projects Completed</p>
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">⏱</div>
+
+<div>
+<h2>5000+</h2>
+<p>Hours Saved</p>
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">🎯</div>
+
+<div>
+<h2>98%</h2>
+<p>Client Satisfaction</p>
+</div>
+</div>
+
+</section>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2025 AI Solutions Studio. All rights reserved.
+
+<div class="socials">
+<span>in</span>
+<span>𝕏</span>
+<span>⌘</span>
+<span>▶</span>
+</div>
+
+</footer>
+
+</body>
+</html>
